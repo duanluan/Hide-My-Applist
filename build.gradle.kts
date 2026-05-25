@@ -24,12 +24,12 @@ val gitCommitCount = "git rev-list HEAD --count".execute().toInt()
 val gitCommitHash = "git rev-parse --verify --short HEAD".execute()
 
 val minSdkVer by extra(28)
-val targetSdkVer by extra(35)
-val buildToolsVer by extra("35.0.1")
+val targetSdkVer by extra(36)
+val buildToolsVer by extra("36.1.0")
 
-val appVerName by extra("3.4")
+val appVerName by extra("3.8-no-native")
 val configVerCode by extra(90)
-val serviceVerCode by extra(97)
+val serviceVerCode by extra(101)
 val minBackupVerCode by extra(65)
 
 val androidSourceCompatibility = JavaVersion.VERSION_21
@@ -51,7 +51,7 @@ fun Project.configureBaseExtension() {
         defaultConfig {
             minSdk = minSdkVer
             targetSdk = targetSdkVer
-            versionCode = gitCommitCount
+            versionCode = 500
             versionName = appVerName
             if (localProperties.getProperty("buildWithGitSuffix").toBoolean())
                 versionNameSuffix = ".r${gitCommitCount}.${gitCommitHash}"
